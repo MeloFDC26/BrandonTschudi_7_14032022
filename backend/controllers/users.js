@@ -1,0 +1,3 @@
+exports.deleteUser = (req, res) => {
+    
+}
