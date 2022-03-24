@@ -1,13 +1,16 @@
 <template>
     <div class="header">
         <img src="..\assets\logos\icon-above-font.png" alt="Logo Groupomania">
-        <a href="/"><button class="logout_btn">Se déconnecter</button></a>
+        <router-link to="/">
+            <button class="logout_btn">Se déconnecter</button>
+        </router-link>
     </div>
 </template>
 
 <script>
 export default {
-    
+    name: Header,
+
 }
 </script>
 
