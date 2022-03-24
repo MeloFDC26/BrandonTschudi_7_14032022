@@ -1,6 +1,6 @@
 <template>
     <div class="header">
-        <img src="..\public\logos\icon-above-font.png" alt="Logo Groupomania">
+        <img src="..\assets\logos\icon-above-font.png" alt="Logo Groupomania">
     </div>
 </template>
 
