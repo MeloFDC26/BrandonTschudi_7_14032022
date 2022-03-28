@@ -1,15 +1,15 @@
 <template>
-    <Header>
+    <Post>
 </template>
 
 <script>
 //import components ici
-import Header from '@/components/Header.vue'
+import Post from '@/components/Post.vue'
 
 export default {
     name: 'PostView',
     components: {
-        Header
+        Post
   }
 }
 </script>
