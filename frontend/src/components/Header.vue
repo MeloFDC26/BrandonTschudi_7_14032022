@@ -1,6 +1,8 @@
 <template>
   <div class="header">
     <img src="..\assets\logos\icon-above-font.png" alt="Logo Groupomania" />
+    <router-link to="/profil">Profil</router-link>
+    <router-link to="/post">Post</router-link>
     <router-link to="/">
       <button class="logout_btn">Se déconnecter</button>
     </router-link>
