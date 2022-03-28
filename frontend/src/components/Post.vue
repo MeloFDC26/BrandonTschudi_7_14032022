@@ -1,4 +1,5 @@
 <template>
+    <Header>
     <div class="post">
         <h2>Titre du post</h2>
         <p>Description du post</p>
@@ -7,9 +8,13 @@
 </template>
 
 <script>
+import Header from '@/components/Header.vue'
 export default {
-    name: 'Post'
-}
+  name: "Post",
+  components: {
+      Header
+  }
+};
 </script>
 
 <style lang="scss" scoped>
