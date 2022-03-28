@@ -1,5 +1,5 @@
 <template>
-    <Header>
+    <Header/>
     <div class="post">
         <h2>Titre du post</h2>
         <p>Description du post</p>
