@@ -2,12 +2,12 @@
   <div class="login">
     <form action="" method="get" class="form-login">
       <div class="form-login">
-        <label for="name">Nom d'utilisateur: </label>
-        <input type="text" name="name" id="name" required />
+        <label for="email">Email: </label>
+        <input type="email" name="email" id="email" required />
       </div>
       <div class="form-login">
-        <label for="email">Mot de passe: </label>
-        <input type="email" name="email" id="email" required />
+        <label for="password">Mot de passe: </label>
+        <input type="password" name="password" id="password" required />
       </div>
       <div class="form-login">
         <input type="submit" value="Se connecter" />
