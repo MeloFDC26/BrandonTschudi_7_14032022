@@ -13,7 +13,16 @@ exports.createPost = async (req, res) => {
 
 exports.deletePost = async (req, res) => {
   try {
-
+    const postObject = req.body;
+    Post.findOne({
+        where: { 
+            id: req.params.id 
+        }
+    })
+    .then((Post) => {
+      Post.destroy(postObject);
+    });
+    res.status(200).json({ message: 'Post supprimé !' });
   } catch (error) {
     res.status(500).json({ error });
   }
