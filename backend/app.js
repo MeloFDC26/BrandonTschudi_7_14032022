@@ -1,11 +1,15 @@
 const express = require('express');
 const bodyParser = require ('body-parser');
-const path = require('path');
+//Configuration de dotenv
+const dotenv = require('dotenv');
+dotenv.config({path: 'config/.env'});
+const {initDB} = require('./config/dbConfig');
 
 const app = express();
 const authRoutes = require('./routes/auth');
 const usersRoutes = require('./routes/users');
 const postsRoutes = require('./routes/posts');
+const extraSetUp = require('./config/extraSetUp');
 
 //Middleware pour permettre à tout le monde d'utiliser les routes ci-dessous
 app.use((req, res, next) => {
@@ -24,6 +28,8 @@ app.use((req, res, next) => {
 app.use(express.json());
 app.use(bodyParser.json());
 
+initDB();
+extraSetUp();
 
 //Ajout de la route utilisateur
 app.use('/api/auth', authRoutes);
