@@ -12,3 +12,16 @@ exports.deleteUser = (req, res) => {
     });
     res.status(200).json({message: 'Utilisateur supprimé !'});
 }
+
+exports.updateUser = (req, res) => {
+    const userObject = req.body;
+    User.findOne({
+        where: {
+            id: req.params.id
+        }
+    })
+    .then((User) => {
+        User.update(userObject);
+    });
+    res.status(200).json({message: 'Utilisateur modifié !'});
+}
