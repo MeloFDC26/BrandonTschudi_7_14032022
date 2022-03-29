@@ -13,6 +13,7 @@ exports.createPost = async (req, res) => {
 
 exports.deletePost = async (req, res) => {
   try {
+
   } catch (error) {
     res.status(500).json({ error });
   }
@@ -28,9 +29,8 @@ exports.updatePost = async (req, res) => {
     })
     .then((Post) => {
       Post.update(postObject);
-    })
-    .then(() => res.status(200).json({ postObject }))
-    .catch((error) => res.status(400).json({ error }));
+    });
+    res.status(200).json({ postObject });
   } catch (error) {
     res.status(500).json({ error });
   }
