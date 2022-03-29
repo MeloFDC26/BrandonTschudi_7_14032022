@@ -15,6 +15,7 @@ exports.deletePost = async (req, res) => {
   try {
     const postObject = req.body;
     Post.findOne({
+        include: User,
         where: { 
             id: req.params.id 
         }
@@ -32,6 +33,7 @@ exports.updatePost = async (req, res) => {
   try {
     const postObject = req.body;
     Post.findOne({
+        include: User,
         where: { 
             id: req.params.id 
         }
