@@ -20,6 +20,17 @@ exports.deletePost = async (req, res) => {
 
 exports.updatePost = async (req, res) => {
   try {
+    const postObject = req.body;
+    Post.findOne({
+        where: { 
+            id: req.params.id 
+        }
+    })
+    .then((Post) => {
+      Post.update(postObject);
+    })
+    .then(() => res.status(200).json({ postObject }))
+    .catch((error) => res.status(400).json({ error }));
   } catch (error) {
     res.status(500).json({ error });
   }
