@@ -1,14 +1,11 @@
 <template>
-    <Profil/>
+  <div></div>
 </template>
 
 <script>
 //import components ici
-import Profil from '../components/Profil.vue'
 
 export default {
-    name: 'ProfilView',
-    components: { Profil },
-    
-}
+  name: "ProfilView",
+};
 </script>
