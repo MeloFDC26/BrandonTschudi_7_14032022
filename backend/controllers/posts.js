@@ -13,7 +13,7 @@ exports.createPost = async (req, res) => {
 
 exports.deletePost = async (req, res) => {
   try {
-    const postObject = req.body;
+    const postObject = await req.body;
     Post.findOne({
         include: User,
         where: { 
@@ -31,7 +31,7 @@ exports.deletePost = async (req, res) => {
 
 exports.updatePost = async (req, res) => {
   try {
-    const postObject = req.body;
+    const postObject = await req.body;
     Post.findOne({
         include: User,
         where: { 
