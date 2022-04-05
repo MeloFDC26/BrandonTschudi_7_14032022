@@ -2,7 +2,7 @@ const User = require("../models/User");
 
 exports.deleteUser = async (req, res) => {
   try {
-    const userObject = req.body;
+    const userObject = await req.body;
     User.findOne({
       where: {
         id: req.params.id,
@@ -18,7 +18,7 @@ exports.deleteUser = async (req, res) => {
 
 exports.updateUser = async (req, res) => {
   try {
-    const userObject = req.body;
+    const userObject = await req.body;
     User.findOne({
       where: {
         id: req.params.id,
