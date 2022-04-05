@@ -24,7 +24,7 @@
 //import components ici
 
 export default {
-    name: "signupView",
+    name: "SignupView",
     data() {
       return {
         pseudo: "",

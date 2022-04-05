@@ -20,7 +20,7 @@
 //import components ici
 
 export default {
-    name: "loginView",
+    name: "LoginView",
     data() {
       return {
         email: "",
