@@ -3,14 +3,14 @@
     <form action="" method="get" class="form-login">
       <div class="form-login">
         <label for="email">Email: </label>
-        <input type="email" name="email" id="email" required />
+        <input v-model="email" type="email" name="email" id="email" required />
       </div>
       <div class="form-login">
         <label for="password">Mot de passe: </label>
-        <input type="password" name="password" id="password" required />
+        <input v-model="password" type="password" name="password" id="password" required />
       </div>
       <div class="form-login">
-        <input type="submit" value="Se connecter" />
+        <input @click="userLogin" type="submit" value="Se connecter" />
       </div>
     </form>
   </div>
@@ -20,6 +20,28 @@
 //import components ici
 
 export default {
-    
+    name: "loginView",
+    data() {
+      return {
+        email: "",
+        password: ""
+      };
+    },
+    methods: {
+      userLogin() {
+        this.axios.post(
+          'http://localhost:3000/api/auth/login',
+          {
+            email: this.email,
+            password: this.password
+          }, 
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        )
+      }
+    }
 };
 </script>
