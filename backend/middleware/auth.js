@@ -1,4 +1,5 @@
 const jwt = require("jsonwebtoken");
+require("dotenv").config();
 
 //Middleware qui vérifie le token reçu
 module.exports = (req, res, next) => {
