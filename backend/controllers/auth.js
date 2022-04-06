@@ -22,7 +22,11 @@ exports.signup = (req, res, next) => {
 
 //Fonction login qui récupère l'utilisateur de la base qui correspond à l'adresse email entrée, qui compare le password entré avec le hash stocké et qui renvoie l'id utilisateur et un token
 exports.login = (req, res, next) => {
-  User.findOne({ email: req.body.email })
+  User.findOne({
+    where: {
+      email: req.body.email,
+    },
+  })
     .then((user) => {
       if (!user) {
         return res.status(404).json({ error: "Utilisateur non trouvé !" });
@@ -37,10 +41,10 @@ exports.login = (req, res, next) => {
             userId: user.id,
             isAdmin: user.isAdmin,
             token: jwt.sign(
-                { userId: user.id },
-                `${process.env.TOKEN}`,
-                { expiresIn: '100h' }
-            )
+              { userId: user.id },
+              `${process.env.TOKEN_SECRET}`,
+              { expiresIn: "100h" }
+            ),
           });
         })
         .catch((error) => res.status(500).json({ error }));
