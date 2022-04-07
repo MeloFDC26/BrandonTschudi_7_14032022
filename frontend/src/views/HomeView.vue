@@ -51,6 +51,7 @@ export default {
       .get("http://localhost:3000/api/posts", {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("token"),
+          "Content-Type": "application/json",
         },
       })
       .then((res) => {
@@ -78,7 +79,7 @@ export default {
           {
             headers: {
               Authorization: "Bearer " + localStorage.getItem("token"),
-              "Content-Type": "multipart/form-data",
+              "Content-Type": "application/json",
             },
           }
         )

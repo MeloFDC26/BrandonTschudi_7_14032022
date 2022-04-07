@@ -66,7 +66,7 @@ export default {
         .then((response) => {
           localStorage.setItem("token", response.data.token);
           localStorage.setItem("email", this.logEmail);
-          localStorage.setItem("password", this.logPassword);
+          localStorage.setItem("isAdmin", response.data.isAdmin);
           localStorage.setItem("userId", response.data.userId);
           this.$router.push("/");
         });
