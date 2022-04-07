@@ -1,33 +1,45 @@
 const User = require("../models/User");
+const Post = require("../models/Post");
 
 exports.deleteUser = async (req, res) => {
   try {
-    const userObject = await req.body;
-    User.findOne({
+    await User.destroy({
       where: {
         id: req.params.id,
       },
-    }).then((User) => {
-      User.destroy(userObject);
-    });
-    res.status(200).json({ userObject });
+    })
+    res.status(200).json({ message: 'compte supprimé' });
   } catch (error) {
-    res.status(200).json({ message: "Utilisateur supprimé !" });
+    res.status(500).json({ message: "Une erreur s'est produite" });
   }
 };
 
 exports.updateUser = async (req, res) => {
   try {
-    const userObject = await req.body;
-    User.findOne({
+    await User.update({
       where: {
         id: req.params.id,
       },
-    }).then((User) => {
-      User.update(userObject);
-    });
-    res.status(200).json({ userObject });
+    },
+      { ...req.body })
+    res.status(200).json({ message: 'Utilisateur mis à jour' });
   } catch (error) {
-    res.status(200).json({ message: "Utilisateur modifié !" });
+    console.error(error);
+    res.status(500).json({ message: "Une erreur s'est produite" });
   }
 };
+
+exports.getOneUser = async (req, res) => {
+  try {
+    const user = await User.findOne({
+      include: Post,
+      where: {
+        id: req.params.id,
+      },
+    });
+    res.status(200).json({ user });
+  } catch (error) {
+    res.status(500).json({ error });
+  }
+};
+

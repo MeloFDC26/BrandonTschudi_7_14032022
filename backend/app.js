@@ -25,8 +25,8 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(bodyParser.json());
 
 initDB();
 extraSetUp();

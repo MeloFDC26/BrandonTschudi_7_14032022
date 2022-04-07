@@ -4,7 +4,7 @@ const User = require("../models/User");
 exports.createPost = async (req, res) => {
   try {
     const newPost = new Post(req.body);
-    newPost.save();
+    await newPost.save();
     res.status(201).json({ newPost });
   } catch (error) {
     res.status(500).json({ error });
@@ -13,16 +13,11 @@ exports.createPost = async (req, res) => {
 
 exports.deletePost = async (req, res) => {
   try {
-    const postObject = await req.body;
-    Post.findOne({
-        include: User,
-        where: { 
-            id: req.params.id 
-        }
+    await Post.destroy({
+      where: {
+        id: req.params.id
+      }
     })
-    .then((Post) => {
-      Post.destroy(postObject);
-    });
     res.status(200).json({ message: 'Post supprimé !' });
   } catch (error) {
     res.status(500).json({ error });
@@ -31,16 +26,14 @@ exports.deletePost = async (req, res) => {
 
 exports.updatePost = async (req, res) => {
   try {
-    const postObject = await req.body;
-    Post.findOne({
-        include: User,
-        where: { 
-            id: req.params.id 
-        }
-    })
-    .then((Post) => {
-      Post.update(postObject);
-    });
+    await Post.update({
+      where: {
+        id: req.params.id
+      }
+    },
+      {
+        ...req.body
+      });
     res.status(200).json({ postObject });
   } catch (error) {
     res.status(500).json({ error });
