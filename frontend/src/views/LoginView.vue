@@ -1,9 +1,15 @@
 <template>
   <div class="login">
-    <form action="" method="get" class="form-login">
+    <form @submit="userLogin">
       <div class="form-login">
         <label for="email">Email: </label>
-        <input v-model="logEmail" type="email" name="email" id="email" required />
+        <input
+          v-model="logEmail"
+          type="email"
+          name="email"
+          id="email"
+          required
+        />
       </div>
       <div class="form-login">
         <label for="password">Mot de passe: </label>
@@ -16,7 +22,12 @@
         />
       </div>
       <div class="form-login">
-        <input @click="userLogin" type="submit" value="Se connecter" />
+        <input type="submit" value="Se connecter" />
+      </div>
+      <div class="form-login">
+        <router-link to="signup"
+          >Vous n'avez pas de compte ? Créez en un !</router-link
+        >
       </div>
     </form>
   </div>
@@ -26,38 +37,58 @@
 //import components ici
 
 export default {
-    name: "LoginView",
-    data() {
-      return {
-        email: "",
-        password: "",
-        submitted: false
-      };
-    },
-    methods: {
-      userLogin() {
-        const logEmail = this.logEmail;
-        const logPassword = this.logPassword;
-        this.submitted = true;
-        this.axios.post(
-          'http://localhost:3000/api/auth/login',
+  name: "LoginView",
+  data() {
+    return {
+      email: "",
+      password: "",
+    };
+  },
+  created: () => {
+    localStorage.clear();
+  },
+  methods: {
+    userLogin(e) {
+      e.preventDefault();
+      this.axios
+        .post(
+          "http://localhost:3000/api/auth/login",
           {
             email: this.logEmail,
-            password: this.logPassword
-          }, 
+            password: this.logPassword,
+          },
           {
             headers: {
               "Content-Type": "application/json",
             },
           }
         )
-        .then(function(response) {
+        .then((response) => {
           localStorage.setItem("token", response.data.token);
-          localStorage.setItem("email", logEmail);
-          localStorage.setItem("password", logPassword);
-          localStorage.setItem("isAdmin", response.data.isAdmin);
-        })
-      }
-    }
+          localStorage.setItem("email", this.logEmail);
+          localStorage.setItem("password", this.logPassword);
+          localStorage.setItem("userId", response.data.userId);
+          this.$router.push("/");
+        });
+    },
+  },
 };
 </script>
+
+<style scoped>
+.login {
+  background: lavenderblush;
+  display: flex;
+  justify-content: center;
+}
+form {
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.form-login {
+  display: flex;
+  flex-direction: column;
+}
+</style>
