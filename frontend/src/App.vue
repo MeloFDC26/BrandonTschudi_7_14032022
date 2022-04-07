@@ -15,11 +15,11 @@
 <script>
 export default {
   name: "App",
-  // fonction pour la recupération du token
+  // Fonction pour la récupération du token
   data: () => ({
     isLogged: localStorage.getItem("token"),
   }),
-  // fonction pour la mise a jour du token
+  // Fonction pour la mise à jour du token
   updated() {
     this.isLogged = localStorage.getItem("token");
   },
@@ -34,7 +34,6 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
-
 nav {
   padding: 30px;
   min-width: 80%;

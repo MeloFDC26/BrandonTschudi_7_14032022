@@ -1,6 +1,6 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 
-
+//Paramètrage du routeur
 const routes = [
   {
     path: '/',
@@ -24,12 +24,13 @@ const routes = [
   }
 ]
 
-
+//Création du routeur
 const router = createRouter({
   history: createWebHashHistory(),
   routes
 })
 
+//Redirection si l'utilisateur n'est pas loggé et suppression des données du local storage en cas de déconnexion
 router.beforeEach((to, from, next) => {
   if (
     to.name !== "login" &&

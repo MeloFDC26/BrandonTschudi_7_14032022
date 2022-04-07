@@ -34,8 +34,6 @@
 </template>
 
 <script>
-//import components ici
-
 export default {
   name: "LoginView",
   data() {
@@ -44,6 +42,7 @@ export default {
       password: "",
     };
   },
+  //Login utilisateur
   created: () => {
     localStorage.clear();
   },
@@ -63,6 +62,7 @@ export default {
             },
           }
         )
+        //Initialisation et paramètrage du localStorage
         .then((response) => {
           localStorage.setItem("token", response.data.token);
           localStorage.setItem("email", this.logEmail);

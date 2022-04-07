@@ -16,15 +16,13 @@
 </template>
 
 <script>
-//import components ici
-
 export default {
   name: "ProfilView",
   data: () => ({
     user: {},
     isAdmin: localStorage.getItem("isAdmin") === "true",
   }),
-  // récupération des informations de l'utilisateur et ses posts
+  // Récupération des informations de l'utilisateur et ses posts
   created() {
     this.axios
       .get(
@@ -43,7 +41,7 @@ export default {
       });
   },
   methods: {
-    // fonction pour la suppression d'un compte utilisateur
+    // Fonction pour la suppression d'un compte utilisateur
     deleteAccount() {
       if (confirm("Êtes vous sûr de vouloir supprimer votre compte ?")) {
         this.axios
@@ -67,6 +65,7 @@ export default {
   },
 };
 </script>
+
 <style scoped>
 #posts {
   display: flex;

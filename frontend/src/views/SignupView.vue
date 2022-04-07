@@ -38,10 +38,9 @@
 </template>
 
 <script>
-//import components ici
-
 export default {
   name: "SignupView",
+  //Création d'un nouvel utilisateur sur page d'inscription
   data() {
     return {
       pseudo: "",

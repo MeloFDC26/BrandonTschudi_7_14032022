@@ -38,7 +38,7 @@ export default {
     setEditMode() {
       this.editMode = !this.editMode;
     },
-    //suppression d'un post
+    //Suppression d'un post
     deletePost() {
       if (confirm("Êtes vous sûr de vouloir supprimer votre post ?")) {
         this.axios
@@ -56,7 +56,7 @@ export default {
           });
       }
     },
-    // modification d'un post
+    // Modification d'un post
     update() {
       this.axios
         .put(

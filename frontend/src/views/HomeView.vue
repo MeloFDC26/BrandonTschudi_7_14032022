@@ -47,7 +47,7 @@ export default {
     title: "",
     description: "",
   }),
-  // création d'un post
+  // Création d'un post
   created() {
     this.axios
       .get("http://localhost:3000/api/posts", {

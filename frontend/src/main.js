@@ -6,7 +6,7 @@ import PostComponent from "./components/Post.vue";
 
 const app = createApp(App);
 
-// utilisation d'axios comme variable global dans le front
+// Utilisation d'axios comme variable global dans le frontend
 app.config.globalProperties.axios = axios;
 app.use(router);
 app.component('PostComponent', PostComponent);
