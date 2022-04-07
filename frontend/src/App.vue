@@ -1,6 +1,10 @@
 <template>
   <div>
     <nav v-if="isLogged">
+      <img
+        src="./assets/logos/icon-above-font.png"
+        alt="Logo de la société Groupomania"
+      />
       <router-link to="/">Accueil</router-link> |
       <router-link to="/profil">Profil</router-link> |
       <router-link to="/login">Déconnexion</router-link>
@@ -35,13 +39,20 @@ nav {
   padding: 30px;
   min-width: 80%;
   display: flex;
-  justify-content: space-around;
-
+  justify-content: space-between;
+  align-items: center;
+  img {
+    max-height: 110px;
+    max-width: 110px;
+    float: left;
+  }
   a {
     font-weight: bold;
     color: #2c3e50;
     text-decoration: none;
-
+    &:hover {
+      color: #42b983;
+    }
     &.router-link-exact-active {
       color: #42b983;
     }
