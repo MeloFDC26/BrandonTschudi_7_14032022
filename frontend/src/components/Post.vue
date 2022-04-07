@@ -11,12 +11,7 @@
     >
       Modifier
     </button>
-    <button
-      @click="update"
-      v-if="editMode"
-    >
-      Valider
-    </button>
+    <button @click="update" v-if="editMode">Valider</button>
     <button
       @click="deletePost"
       v-if="isAdmin || !post.User || currentUserId == post.User.id"
@@ -87,4 +82,26 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.post {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  background-color: lightgray;
+  margin-top: 10px;
+  min-width: 220px;
+  border: solid 1px black;
+  padding: 5px;
+  border-radius: 15px;
+}
+button {
+  border-radius: 15px;
+  margin: 3px;
+  padding: 2px;
+}
+
+button:hover {
+  box-shadow: 0px 8px 15px #858282;
+  transform: scale(0.95);
+  cursor: pointer;
+}
 </style>

@@ -1,6 +1,6 @@
 <template>
   <section>
-    <h1>{{ user.email }}</h1>
+    <h1>{{ user.pseudo }}</h1>
     <button v-if="!isAdmin" @click="deleteAccount" class="delete">
       Supprimer mon compte
     </button>
@@ -73,5 +73,17 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+button {
+  border-radius: 15px;
+  margin: 3px;
+  padding: 2px;
+  min-width: 175px;
+}
+
+button:hover {
+  box-shadow: 0px 8px 15px #858282;
+  transform: scale(0.95);
+  cursor: pointer;
 }
 </style>

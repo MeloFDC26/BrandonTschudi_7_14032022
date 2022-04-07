@@ -5,6 +5,7 @@
       <form class="form">
         <div class="message">
           <input
+            class="input"
             id="title"
             required
             v-model="title"
@@ -19,6 +20,7 @@
             required
           ></textarea>
           <input
+            class="input"
             id="submit"
             type="button"
             @click="createPost"
@@ -94,7 +96,11 @@ export default {
   },
 };
 </script>
-<style scoped>
+<style lang="scss" scoped>
+template {
+  display: flex;
+  flex-direction: column !important;
+}
 section {
   height: 100%;
   display: flex;
@@ -109,6 +115,7 @@ section {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  border: solid 1px black;
 }
 #message {
   display: flex;
@@ -122,6 +129,10 @@ section {
   color: #42b983;
   border: solid 1px #b3aca7;
   transition: all 0.3s ease-in-out;
+  border-radius: 15px;
+}
+input {
+  border-radius: 15px;
 }
 textarea:hover {
   box-shadow: 0px 8px 15px #858282;
@@ -138,6 +149,7 @@ input:hover {
   display: flex;
   align-items: center;
   justify-content: center;
+  border: solid 1px black;
 }
 #title {
   display: flex;

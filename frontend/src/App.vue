@@ -33,10 +33,14 @@ export default {
 
 nav {
   padding: 30px;
+  min-width: 80%;
+  display: flex;
+  justify-content: space-around;
 
   a {
     font-weight: bold;
     color: #2c3e50;
+    text-decoration: none;
 
     &.router-link-exact-active {
       color: #42b983;
