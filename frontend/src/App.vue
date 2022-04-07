@@ -1,12 +1,26 @@
 <template>
   <div>
-    <nav>
+    <nav v-if="isLogged">
       <router-link to="/">Accueil</router-link> |
-      <router-link to="/profil">Profil</router-link>
+      <router-link to="/profil">Profil</router-link> |
+      <router-link to="/login">Déconnexion</router-link>
     </nav>
     <main><router-view /></main>
   </div>
 </template>
+<script>
+export default {
+  name: "App",
+  // fonction pour la recupération du token
+  data: () => ({
+    isLogged: localStorage.getItem("token"),
+  }),
+  // fonction pour la mise a jour du token
+  updated() {
+    this.isLogged = localStorage.getItem("token");
+  },
+};
+</script>
 
 <style lang="scss">
 #app {
