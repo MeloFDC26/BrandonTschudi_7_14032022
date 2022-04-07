@@ -1,21 +1,44 @@
 <template>
   <div class="post">
-    <h2>{{ post.title }}</h2>
-    <p>{{ post.description }}</p>
-    <p>Auteur du post</p>
+    <h2 v-if="!editMode">{{ post.title }}</h2>
+    <input type="text" v-model="postToEdit.title" v-if="editMode" />
+    <p v-if="!editMode">{{ post.description }}</p>
+    <textarea v-model="postToEdit.description" v-if="editMode"></textarea>
+    <p v-if="post.User">{{ post.User.pseudo }}</p>
+    <button
+      @click="setEditMode"
+      v-if="isAdmin || !post.User || currentUserId == post.User.id"
+    >
+      Modifier
+    </button>
+    <button
+      @click="update"
+      v-if="editMode"
+    >
+      Valider
+    </button>
+    <button
+      @click="deletePost"
+      v-if="isAdmin || !post.User || currentUserId == post.User.id"
+    >
+      Supprimer
+    </button>
   </div>
 </template>
 
 <script>
 export default {
   name: "PostComponent",
-  data: () => ({
-    editMode: false,
-    currentUserId: localStorage.getItem("userId"),
-    isAdmin: localStorage.getItem("isAdmin") === "true",
-    content: "",
-  }),
   props: ["post"],
+  data() {
+    return {
+      editMode: false,
+      currentUserId: localStorage.getItem("userId"),
+      isAdmin: localStorage.getItem("isAdmin") === "true",
+      content: "",
+      postToEdit: { ...this.post },
+    };
+  },
   methods: {
     setEditMode() {
       this.editMode = !this.editMode;
@@ -47,6 +70,7 @@ export default {
           {
             headers: {
               Authorization: "Bearer " + localStorage.getItem("token"),
+              "Content-Type": "application/json",
             },
           }
         )

@@ -4,6 +4,7 @@ const User = require("../models/User");
 exports.createPost = async (req, res) => {
   try {
     const newPost = new Post(req.body);
+    console.log(req.body);
     await newPost.save();
     res.status(201).json({ newPost });
   } catch (error) {
@@ -26,15 +27,18 @@ exports.deletePost = async (req, res) => {
 
 exports.updatePost = async (req, res) => {
   try {
-    await Post.update({
+   const post =  await Post.findOne({
       where: {
         id: req.params.id
       }
-    },
-      {
-        ...req.body
-      });
-    res.status(200).json({ postObject });
+    });
+    if (post) {
+      post.title = req.body.title;
+      post.description = req.body.description;
+      await post.save();
+      return res.status(200).json({ postObject });
+    }
+    return res.status(404).json({error: "Post non trouvé !"})
   } catch (error) {
     res.status(500).json({ error });
   }
