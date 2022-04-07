@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require ('body-parser');
+
 //Configuration de dotenv
 const dotenv = require('dotenv');
 dotenv.config({path: 'config/.env'});
@@ -28,10 +29,11 @@ app.use((req, res, next) => {
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 
+//Connection et et liaison des tables
 initDB();
 extraSetUp();
 
-//Ajout de la route utilisateur
+//Déclaration des routes par rapport à auth, users et posts
 app.use('/api/auth', authRoutes);
 app.use('/api/users', usersRoutes);
 app.use('/api/posts', postsRoutes);

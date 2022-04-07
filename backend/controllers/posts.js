@@ -1,6 +1,7 @@
 const Post = require("../models/Post");
 const User = require("../models/User");
 
+//Fonction permettant de créer un post
 exports.createPost = async (req, res) => {
   try {
     const newPost = new Post(req.body);
@@ -12,6 +13,7 @@ exports.createPost = async (req, res) => {
   }
 };
 
+//Fonction permettant de supprimer un post
 exports.deletePost = async (req, res) => {
   try {
     await Post.destroy({
@@ -25,6 +27,7 @@ exports.deletePost = async (req, res) => {
   }
 };
 
+//Fonction permettant de modifier un post
 exports.updatePost = async (req, res) => {
   try {
    const post =  await Post.findOne({
@@ -44,6 +47,7 @@ exports.updatePost = async (req, res) => {
   }
 };
 
+//Fonction permettant de récupérer tous les posts
 exports.getAllPosts = async (req, res) => {
   try {
     const posts = await Post.findAll({ include: User });
@@ -53,6 +57,7 @@ exports.getAllPosts = async (req, res) => {
   }
 };
 
+//Fonction permettant de récupérer un post
 exports.getOnePost = async (req, res) => {
   try {
     const post = await Post.findOne({

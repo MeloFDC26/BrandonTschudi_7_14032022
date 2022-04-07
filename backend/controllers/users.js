@@ -1,6 +1,7 @@
 const User = require("../models/User");
 const Post = require("../models/Post");
 
+//Fonction permettant de supprimer un utilisateur
 exports.deleteUser = async (req, res) => {
   try {
     await User.destroy({
@@ -14,6 +15,7 @@ exports.deleteUser = async (req, res) => {
   }
 };
 
+//Fonction permettant de modifier un utilisateur
 exports.updateUser = async (req, res) => {
   try {
     await User.update({
