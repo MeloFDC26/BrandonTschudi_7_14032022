@@ -39,7 +39,7 @@ exports.updatePost = async (req, res) => {
       post.title = req.body.title;
       post.description = req.body.description;
       await post.save();
-      return res.status(200).json({ postObject });
+      return res.status(200).json({ post });
     }
     return res.status(404).json({error: "Post non trouvé !"})
   } catch (error) {

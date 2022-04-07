@@ -61,7 +61,7 @@ export default {
       this.axios
         .put(
           "http://localhost:3000/api/posts/" + this.post.id,
-          { title: this.post.title, description: this.post.description },
+          { title: this.postToEdit.title, description: this.postToEdit.description },
           {
             headers: {
               Authorization: "Bearer " + localStorage.getItem("token"),
