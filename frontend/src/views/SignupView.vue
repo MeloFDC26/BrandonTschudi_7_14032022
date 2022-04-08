@@ -29,7 +29,7 @@
         <input type="submit" value="S'inscrire" />
       </div>
       <div class="form-signup">
-        <router-link to="login"
+        <router-link to="/login"
           >Vous avez déjà un compte ? Connectez-vous !</router-link
         >
       </div>

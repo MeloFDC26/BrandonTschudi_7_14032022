@@ -25,7 +25,7 @@
         <input type="submit" value="Se connecter" />
       </div>
       <div class="form-login">
-        <router-link to="signup"
+        <router-link to="/signup"
           >Vous n'avez pas de compte ? Créez en un !</router-link
         >
       </div>
