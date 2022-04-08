@@ -1,12 +1,24 @@
 <template>
-  <section>
-    <NavComponent></NavComponent>
-    <main><router-view /></main>
-  </section>
+    <nav v-if="isLogged">
+      <img
+        src="../assets/logos/icon-above-font.png"
+        alt="Logo de la société Groupomania"
+      />
+      <router-link to="/">Accueil</router-link> |
+      <router-link to="/profil">Profil</router-link> |
+      <router-link to="/login">Déconnexion</router-link>
+    </nav>
+    <nav v-else>
+      <img
+        src="../assets/logos/icon-above-font.png"
+        alt="Logo de la société Groupomania"
+      />
+      <h2>Réseau social de Groupomania</h2>
+    </nav>
 </template>
 <script>
 export default {
-  name: "App",
+  name: "NavComponent",
   // Fonction pour la récupération du token
   data: () => ({
     isLogged: localStorage.getItem("token"),

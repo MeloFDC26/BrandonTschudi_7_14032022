@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router'
 import axios from "axios";
 import PostComponent from "./components/Post.vue";
+import NavComponent from "./components/Nav.vue";
 
 const app = createApp(App);
 
@@ -10,5 +11,6 @@ const app = createApp(App);
 app.config.globalProperties.axios = axios;
 app.use(router);
 app.component('PostComponent', PostComponent);
+app.component('NavComponent', NavComponent);
 app.mount("#app");
 
