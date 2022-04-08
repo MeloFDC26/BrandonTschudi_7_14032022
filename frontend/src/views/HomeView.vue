@@ -1,42 +1,45 @@
 <template>
-  <section id="posts">
-    <div class="formulaire">
-      <h1>Dites quelque chose</h1>
-      <form class="form">
-        <div class="message">
-          <input
-            class="input"
-            id="title"
-            required
-            v-model="title"
-            type="text"
-            placeholder="Titre*"
-          />
-          <textarea
-            v-model="description"
-            id="message"
-            name="message"
-            placeholder="Présentez-vous, dites quelque chose..."
-            required
-          ></textarea>
-          <input
-            class="input"
-            id="submit"
-            type="button"
-            @click="createPost"
-            value="Poster !"
-          />
-        </div>
-      </form>
-    </div>
-    <section>
-      <PostComponent
-        :post="post"
-        v-for="post of posts"
-        :key="post.id"
-      ></PostComponent>
+  <div>
+    <NavComponent></NavComponent>
+    <section id="posts">
+      <div class="formulaire">
+        <h1>Dites quelque chose</h1>
+        <form class="form">
+          <div class="message">
+            <input
+              class="input"
+              id="title"
+              required
+              v-model="title"
+              type="text"
+              placeholder="Titre*"
+            />
+            <textarea
+              v-model="description"
+              id="message"
+              name="message"
+              placeholder="Présentez-vous, dites quelque chose..."
+              required
+            ></textarea>
+            <input
+              class="input"
+              id="submit"
+              type="button"
+              @click="createPost"
+              value="Poster !"
+            />
+          </div>
+        </form>
+      </div>
+      <section>
+        <PostComponent
+          :post="post"
+          v-for="post of posts"
+          :key="post.id"
+        ></PostComponent>
+      </section>
     </section>
-  </section>
+  </div>
 </template>
 
 <script>

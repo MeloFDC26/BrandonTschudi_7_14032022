@@ -1,5 +1,6 @@
 <template>
   <section>
+    <NavComponent></NavComponent>
     <h1>{{ user.pseudo }}</h1>
     <button v-if="!isAdmin" @click="deleteAccount" class="delete">
       Supprimer mon compte

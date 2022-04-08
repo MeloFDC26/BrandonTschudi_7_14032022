@@ -1,6 +1,6 @@
 <template>
   <section>
-    <NavComponent></NavComponent>
+    
     <main><router-view /></main>
   </section>
 </template>

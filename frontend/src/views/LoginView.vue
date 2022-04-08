@@ -1,36 +1,39 @@
 <template>
-  <div class="login">
-    <form @submit="userLogin">
-      <div class="form-login">
-        <label for="email">Email: </label>
-        <input
-          v-model="logEmail"
-          type="email"
-          name="email"
-          id="email"
-          required
-        />
-      </div>
-      <div class="form-login">
-        <label for="password">Mot de passe: </label>
-        <input
-          v-model="logPassword"
-          type="password"
-          name="password"
-          id="password"
-          required
-        />
-      </div>
-      <div class="form-login">
-        <input type="submit" value="Se connecter" />
-      </div>
-      <div class="form-login">
-        <router-link to="/signup"
-          >Vous n'avez pas de compte ? Créez en un !</router-link
-        >
-      </div>
-    </form>
-  </div>
+  <section>
+    <NavComponent></NavComponent>
+    <div class="login">
+      <form @submit="userLogin">
+        <div class="form-login">
+          <label for="email">Email: </label>
+          <input
+            v-model="logEmail"
+            type="email"
+            name="email"
+            id="email"
+            required
+          />
+        </div>
+        <div class="form-login">
+          <label for="password">Mot de passe: </label>
+          <input
+            v-model="logPassword"
+            type="password"
+            name="password"
+            id="password"
+            required
+          />
+        </div>
+        <div class="form-login">
+          <input type="submit" value="Se connecter" />
+        </div>
+        <div class="form-login">
+          <router-link to="/signup"
+            >Vous n'avez pas de compte ? Créez en un !</router-link
+          >
+        </div>
+      </form>
+    </div>
+  </section>
 </template>
 
 <script>
