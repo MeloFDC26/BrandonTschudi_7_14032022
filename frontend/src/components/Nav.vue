@@ -1,20 +1,19 @@
 <template>
-    <nav v-if="isLogged">
+  <nav v-if="isLogged">
+    <img
+      src="../assets/logos/icon-above-font.png"
+      alt="Logo de la société Groupomania"
+    />
+    <router-link to="/">Accueil</router-link> |
+    <router-link to="/profil">Profil</router-link> |
+    <router-link to="/login">Déconnexion</router-link>
+  </nav>
+  <nav v-else id="imgLogin">
       <img
         src="../assets/logos/icon-above-font.png"
         alt="Logo de la société Groupomania"
       />
-      <router-link to="/">Accueil</router-link> |
-      <router-link to="/profil">Profil</router-link> |
-      <router-link to="/login">Déconnexion</router-link>
-    </nav>
-    <nav v-else>
-      <img
-        src="../assets/logos/icon-above-font.png"
-        alt="Logo de la société Groupomania"
-      />
-      <h2>Réseau social de Groupomania</h2>
-    </nav>
+  </nav>
 </template>
 <script>
 export default {
@@ -38,7 +37,7 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
-section nav {
+nav {
   padding: 30px;
   min-width: 80%;
   display: flex;
@@ -50,6 +49,7 @@ section nav {
     float: left;
   }
   h2 {
+    display: flex;
     align-items: center;
     align-self: center;
   }
@@ -63,6 +63,14 @@ section nav {
     &.router-link-exact-active {
       color: #42b983;
     }
+  }
+}
+#imgLogin {
+  display: flex;
+  justify-content: center;
+  & img {
+    min-width: 300px;
+    min-height: 300px;
   }
 }
 </style>
