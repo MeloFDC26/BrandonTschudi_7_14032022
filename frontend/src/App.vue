@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <section>
     <nav v-if="isLogged">
       <img
         src="./assets/logos/icon-above-font.png"
@@ -9,8 +9,15 @@
       <router-link to="/profil">Profil</router-link> |
       <router-link to="/login">Déconnexion</router-link>
     </nav>
+    <nav v-else>
+      <img
+        src="./assets/logos/icon-above-font.png"
+        alt="Logo de la société Groupomania"
+      />
+      <h2>Réseau social de Groupomania</h2>
+    </nav>
     <main><router-view /></main>
-  </div>
+  </section>
 </template>
 <script>
 export default {
@@ -34,7 +41,7 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
-nav {
+section nav {
   padding: 30px;
   min-width: 80%;
   display: flex;
@@ -44,6 +51,10 @@ nav {
     max-height: 110px;
     max-width: 110px;
     float: left;
+  }
+  h2 {
+    align-items: center;
+    align-self: center;
   }
   a {
     font-weight: bold;
